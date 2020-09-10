@@ -1,2 +1,2 @@
-# QuantumWeb2020
-Trabalho para a disciplina de Desenvolvimento Web em 2020
+# Clinica-Odontologica
+Sistema para Gestão de Clínicas Odontológicas
