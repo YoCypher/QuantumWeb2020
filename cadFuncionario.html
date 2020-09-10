@@ -57,34 +57,53 @@
           </ul>
         </div>
       </nav>
-    <div class="container" id="generic">
-        <h2>Cadastro Funcionário</h2>
-        <form name="cadFuncionario">
-            <div class="form-group">
-                <label for="idFuncionario">Nome:</label>
-                <input type="text" name="nomeFuncionario" id="idFuncionario" class="form-control" placeholder="Informe o seu nome do funcionário">
+      <div class="container" id="generic">
+        <h2 id="h2personalizado">Cadastrar Novo Funcionário</h2>
+          <form name="cadFuncionario">
+              <div class="form-group">
+                  <label for="idFuncionario">Nome:</label>
+                  <input type="text" name="nomeFuncionario" id="idFuncionario" class="form-control" placeholder="Informe o seu nome do funcionário">
+              </div>
+              <div class="form-group">
+                  <label for="idCpf">CPF:</label>
+                  <input type="text" name="cpfFuncionario" id="idCpf" class="form-control" placeholder="Informe o CPF do funcionário">
+              </div>
+              <div class="form-group">
+                  <label for="idEmail">E-mail:</label>
+                  <input type="email" name="emailFuncionario" id="idEmail" class="form-control" placeholder="Informe o e-mail do funcionário">
+              </div>
+              <div class="form-group">
+                  <label for="idSalario">Salário:</label>
+                  <input type="text" name="salarioFuncionario" id="idSalario" class="form-control" placeholder="Informe o salário do funcionário">
+              </div>
+              <div class="form-group">
+                  <label for="idCargo">Cargo:</label>
+                  <input type="text" name="cargoFuncionario" id="idCargo" class="form-control" placeholder="Informe o cargo do funcionário">
+              </div>
+              <div class="form-group">
+                  <input type="reset" value="Limpar" class="btn btn-secondary">
+                  <input type="button" id="submeter" value="Cadastrar" class="btn btn-success" onClick="add()">
             </div>
-            <div class="form-group">
-                <label for="idCpf">CPF:</label>
-                <input type="text" name="cpfFuncionario" id="idCpf" class="form-control" placeholder="Informe o CPF do funcionário">
-            </div>
-            <div class="form-group">
-                <label for="idEmail">E-mail:</label>
-                <input type="email" name="emailFuncionario" id="idEmail" class="form-control" placeholder="Informe o e-mail do funcionário">
-            </div>
-            <div class="form-group">
-                <label for="idSalario">Salário:</label>
-                <input type="text" name="salarioFuncionario" id="idSalario" class="form-control" placeholder="Informe o salário do funcionário">
-            </div>
-            <div class="form-group">
-                <label for="idCargo">Cargo:</label>
-                <input type="text" name="cargoFuncionario" id="idCargo" class="form-control" placeholder="Informe o cargo do funcionário">
-            </div>
-            <div class="form-group">
-				<input type="reset" value="Limpar" class="btn btn-secondary">
-				<input type="submit" value="Cadastrar" class="btn btn-success">
-			</div>
         </form>
-    </div>
+      </div>
+      <div class="container">
+        <h2 id="h2personalizado">Listagem dos Funcionários</h2>
+        <table id="funcionarios" class="table table-bordered table-hover">
+          <thead>
+            <tr style="background-color:#271c64; color:#fff;">
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Email</th>
+              <th scope="col">Salário</th>
+              <th scope="col">Cargo</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+    <script src="js/validarFuncionario.js"></script>
+    <script src="js/addFuncionario.js"></script>
 </body>
 </html>
