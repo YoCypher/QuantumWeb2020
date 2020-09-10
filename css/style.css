@@ -12,3 +12,7 @@
 .content h2{
     text-align: center;
 }
+
+#h2personalizado{
+    margin-bottom: 30px;
+}
