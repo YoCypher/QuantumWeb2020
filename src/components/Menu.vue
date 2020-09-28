@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="js/popper.min.js"></script>
-	<script src="js/jquery-3.5.1.slim.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-</head>
-<body>
+<template>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #271c64;">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
+        <a class="navbar-brand" href="index.html"><img src="../assets/img/logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -57,23 +44,10 @@
           </ul>
         </div>
       </nav>
-    <div class="container" id="generic">
-        <h2>Cadastrar Novo Usuário</h2>
-        <form name="cadUsuario">
-            <div class="form-group">
-                <label for="idUsuario">Usuário:</label>
-                <input type="text" name="Usuario" id="idUsuario" class="form-control" placeholder="Insira o nome de usuário">
-            </div>
-            <div class="form-group">
-                <label for="idSenha">Senha:</label>
-                <input type="password" name="Senha" id="idSenha" class="form-control" placeholder="Insira a senha do usuário">
-            </div>
-            <div class="form-group">
-                <input type="reset" value="Limpar" class="btn btn-secondary">
-                <input type="submit" value="Cadastrar" class="btn btn-success">
-            </div>
-            
-        </form>
-    </div>
-</body>
-</html>
+</template>
+
+<script>
+export default {
+    name: 'Menu'
+}
+</script>
