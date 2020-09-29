@@ -1,6 +1,6 @@
 <template>
-    <div class="content">
-        <h2>Login</h2>
+    <div class="content mt-4 mb-4">
+        <h3 style="text-align:center;">Login</h3>
         <form>
             <div class="form-group">
                 <label for="idUsuario">Usuário:</label>
@@ -11,8 +11,8 @@
                 <input type="password" name="Senha" id="idSenha" class="form-control" placeholder="Informe a senha do usuário">
             </div>
             <div class="grupo">
-              <input type="reset" id ="limpar" value="Limpar" class="btn btn-secondary">
-              <input type="button" id = "submeter" value="Entrar" class="btn btn-success">
+              <input type="reset" id ="limpar" value="Limpar" class="btn">
+              <input type="button" id = "submeter" value="Entrar" class="btn">
             </div>
         </form>
         <br/>
@@ -31,6 +31,16 @@ export default{
       width: 50%;
       margin-left: auto;
       margin-right: auto;
+  }
+
+  input[type="button"], input[type="reset"]{
+    color: white;
+    background-color: #271c64;
+  }
+
+  input[type="button"]:hover, input[type="reset"]:hover{
+    color: white;
+    background-color: #4a148c;
   }
 
   .content h2{
