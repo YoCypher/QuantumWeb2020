@@ -3,6 +3,10 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import CadUsuario from '../views/CadUsuario.vue';
 import CadFuncionario from '../views/CadFuncionario.vue';
+import CadPaciente from '../views/CadPaciente.vue';
+import CadConsulta from '../views/CadConsulta.vue';
+import CadDependente from '../views/CadDependente.vue';
+import CadProcedimento from '../views/CadProcedimento.vue';
 
 Vue.use(VueRouter)
 
@@ -29,6 +33,26 @@ const routes = [
     path: '/cadastro/funcionario',
     name: 'CadFuncionario',
     component: CadFuncionario
+  },
+  {
+    path: '/cadastro/paciente',
+    name: 'CadPaciente',
+    component: CadPaciente
+  },
+  {
+    path: '/cadastro/consulta',
+    name: 'CadConsulta',
+    component: CadConsulta
+  },
+  {
+    path: '/cadastro/dependente',
+    name: 'CadDependente',
+    component: CadDependente
+  },
+  {
+    path: '/cadastro/procedimento',
+    name: 'CadProcedimento',
+    component: CadProcedimento
   }
 ]
 
