@@ -4,20 +4,31 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link">Home</router-link>
-            </li>
-            <li class="nav-item dropdown">
-              <router-link to="/about" class="nav-link">About</router-link>
-            </li>
-            <li class="nav-item dropdown">
-              <router-link to="/cadastro/usuario" class="nav-link">Cadastro de Usuário</router-link>
-            </li>
-          </ul>
+        <div style="margin-left:auto">
+          <b-nav>
+            <b-nav-item-dropdown
+              id="my-nav-dropdown"
+              text="Dropdown"
+              toggle-class="nav-link-custom"
+              right
+            >
+              <b-dropdown-item>
+                <router-link to="/cadastro/usuario" class="dropdown-item">
+                  Cadastro de Usuário
+                </router-link>
+              </b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item>
+                <router-link to="/cadastro/funcionario" class="dropdown-item">
+                  Cadastro de Funcionário
+                </router-link>
+              </b-dropdown-item>
+            </b-nav-item-dropdown>
+            <b-nav-item><router-link to="/">Home</router-link></b-nav-item>
+            <b-nav-item><router-link to="/about">About</router-link></b-nav-item>
+          </b-nav>
         </div>
-      </nav>
+    </nav>
 </template>
 
 <script>
@@ -25,3 +36,6 @@ export default {
     name: 'Menu'
 }
 </script>
+
+<style>
+</style>

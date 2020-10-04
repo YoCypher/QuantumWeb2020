@@ -36,14 +36,6 @@
       <input type="text" class="form-control" id="inputCEP">
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Clique em mim
-      </label>
-    </div>
-  </div>
   <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
 </form>
 </template>
