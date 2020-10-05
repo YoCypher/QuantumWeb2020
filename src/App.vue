@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" v-bind:style="estilo">
       <Menu/>
     </div>
-    <router-view/>
+    <router-view v-on:desaparecer="ativar"/>
   </div>
 </template>
 
@@ -13,6 +13,16 @@ export default{
   name: 'App',
   components:{
     Menu
+  },
+  data: function(){
+    return {
+      estilo: ''
+    }
+  },
+  methods: {
+    ativar: function(){
+      this.estilo = 'display: none;'
+    }
   }
 }
 </script>

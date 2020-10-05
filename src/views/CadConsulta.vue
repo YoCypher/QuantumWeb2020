@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="generic">
+    <div id="generic" class="container">
         <form name=cadConsulta>
           <h2>Cadastrar Consulta</h2>
             <div class="form-group">

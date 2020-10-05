@@ -1,5 +1,5 @@
 <template>
-    <form name="cadPaciente">
+    <form name="cadPaciente" class="container">
         <h2>Cadastro de Paciente</h2>
         <div class="form-group">
             <label for="idPaciente">Nome:</label>

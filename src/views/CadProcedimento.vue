@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="generic">
+    <div id="generic" class="container">
         <h2>Cadastrar Novo Procedimento</h2>
         <form name="cadProcedimento">
             <div class="form-group">

@@ -1,6 +1,6 @@
 <template>
-    <form name="cadDependente">
-        <h2 id="h2personalizado">Cadastro de Dependente</h2>
+    <form name="cadDependente" class="container">
+        <h2 id="h2personalizado">Cadastrar de Dependente</h2>
         <div class="form-group">
             <label for="idDependente">Nome do Dependente:</label>
             <input type="text" name="nomeDependente" id="idDependente" class="form-control" placeholder="Nome do Dependente">

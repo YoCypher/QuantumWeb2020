@@ -1,18 +1,18 @@
 <template>
     <div class="content mt-4 mb-4">
-        <h3 style="text-align:center;">Login</h3>
-        <form>
+        <img src="../assets/img/logo.png" class="rounded mx-auto d-block mb-4">
+        <form v-on:submit="login($event)" action="http://localhost:8080/cadastro/usuario">
             <div class="form-group">
                 <label for="idUsuario">Usuário:</label>
                 <input type="text" name="Usuario" id="idUsuario" class="form-control" placeholder="Informe o seu nome de usuário"> 
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="idSenha">Senha:</label>
                 <input type="password" name="Senha" id="idSenha" class="form-control" placeholder="Informe a senha do usuário">
             </div>
-            <div class="grupo">
+            <div class="grupo mt-3">
               <input type="reset" id ="limpar" value="Limpar" class="btn">
-              <input type="button" id = "submeter" value="Entrar" class="btn">
+              <input type="submit" id = "submeter" value="Entrar" class="btn">
             </div>
         </form>
         <br/>
@@ -22,7 +22,16 @@
 
 <script>
 export default{
-    name: 'Login'
+    name: 'Login',
+    methods: {
+      login: function(event){
+        var nome = "neto"
+        if(nome === 'net') event.preventDefault()
+      }
+    },
+    mounted: function(){
+      this.$emit('desaparecer');
+    }
 }
 </script>
 
@@ -33,7 +42,7 @@ export default{
       margin-right: auto;
   }
 
-  input[type="button"], input[type="reset"]{
+  input[type="submit"], input[type="reset"]{
     color: white;
     background-color: #271c64;
   }

@@ -1,20 +1,22 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Login from '../components/Login.vue';
 import CadUsuario from '../views/CadUsuario.vue';
 import CadFuncionario from '../views/CadFuncionario.vue';
 import CadPaciente from '../views/CadPaciente.vue';
 import CadConsulta from '../views/CadConsulta.vue';
 import CadDependente from '../views/CadDependente.vue';
 import CadProcedimento from '../views/CadProcedimento.vue';
+import BuscarUsuario from '../views/paginas_busca/BuscarUsuario.vue';
+import AlterarUsuario from '../views/paginas_alteracao/AlterarUsuario.vue';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Login',
+    component: Login
   },
   {
     path: '/cadastro/usuario',
@@ -53,6 +55,16 @@ const routes = [
     path: '/cadastro/procedimento',
     name: 'CadProcedimento',
     component: CadProcedimento
+  },
+  {
+    path: '/buscar/usuario',
+    name: 'BuscarUsuario',
+    component: BuscarUsuario
+  },
+  {
+    path: '/alterar/usuario',
+    name: 'AlterarUsuario',
+    component: AlterarUsuario
   }
 ]
 
