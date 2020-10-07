@@ -9,6 +9,7 @@ import CadDependente from '../views/CadDependente.vue';
 import CadProcedimento from '../views/CadProcedimento.vue';
 import BuscarUsuario from '../views/paginas_busca/BuscarUsuario.vue';
 import AlterarUsuario from '../views/paginas_alteracao/AlterarUsuario.vue';
+import HomeLogado from '../views/HomeLogado.vue';
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,11 @@ const routes = [
     path: '/alterar/usuario',
     name: 'AlterarUsuario',
     component: AlterarUsuario
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: HomeLogado
   }
 ]
 

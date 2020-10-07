@@ -1,13 +1,13 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #271c64;">
-        <div class="container">
+        <div class="container-fluid">
           <a class="navbar-brand" href="index.html"><img src="../assets/img/logo.png"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div style="margin-left:auto">
             <b-nav>
-              <b-nav-item><router-link to="/" style="text-decoration:none">Home</router-link></b-nav-item>
+              <b-nav-item><router-link to="/home" style="text-decoration:none">Home</router-link></b-nav-item>
               <b-nav-item-dropdown class="link"
                 id="my-nav-dropdown"
                 text="Dropdown"
