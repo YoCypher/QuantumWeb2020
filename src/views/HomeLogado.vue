@@ -5,11 +5,11 @@
             <hr>
             <p>Aqui estão todas as funcionalidades</p>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 container-fluid">
+        <div class="row row-cols-1 row-cols-md-3">
             <div class="col mb-4">
                 <div class="card bg-light mb-3 text-center">
                     <div class="card-header">
-                        <img src="../assets/img/febre.png" style="width:30%" alt="..." class="img-thumbnail">
+                        <img src="../assets/img/febre.png" alt="..." class="img-thumbnail icone">
                     </div>
                     <div class="card-body">
                         <h6 class="card-title">Pacientes</h6>
@@ -24,9 +24,11 @@
 
             <div class="col mb-4">
                 <div class="card bg-light mb-3 text-center">
-                    <div class="card-header">Pacientes</div>
+                    <div class="card-header">
+                        <img src="../assets/img/dentista.png" alt="..." class="img-thumbnail icone">
+                    </div>
                     <div class="card-body">
-                        <h6 class="card-title">Pacientes</h6>
+                        <h6 class="card-title">Profissionais</h6>
                         <p class="card-text">0</p>
                     </div>
                     <div class="card-footer text-muted">
@@ -37,9 +39,11 @@
         
             <div class="col mb-4">
                 <div class="card bg-light mb-3 text-center">
-                    <div class="card-header">Pacientes</div>
+                    <div class="card-header">
+                        <img src="../assets/img/consulta.png" alt="..." class="img-thumbnail icone">
+                    </div>
                     <div class="card-body">
-                        <h6 class="card-title">Pacientes</h6>
+                        <h6 class="card-title">Consultas</h6>
                         <p class="card-text">0</p>
                     </div>
                     <div class="card-footer text-muted">
@@ -70,6 +74,11 @@ export default {
     }
     #paciente{
         background-color: blueviolet;
+    }
 
+    .icone{
+        width: 30%;
+        background-color: transparent;
+        border: none;
     }
 </style>
