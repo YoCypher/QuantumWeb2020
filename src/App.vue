@@ -3,7 +3,7 @@
     <div id="nav" v-bind:style="estilo">
       <Menu/>
     </div>
-    <router-view v-on:desaparecer="ativar"/>
+    <router-view v-on:desaparecer="ativar" v-on:aparecer="desativar"/>
   </div>
 </template>
 
@@ -22,6 +22,9 @@ export default{
   methods: {
     ativar: function(){
       this.estilo = 'display: none;'
+    },
+    desativar: function(){
+      this.estilo = 'display: block;'
     }
   }
 }

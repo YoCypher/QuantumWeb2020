@@ -1,7 +1,7 @@
 <template>
     <div class="content mt-4 mb-4">
         <img src="../assets/img/logo.png" class="rounded mx-auto d-block mb-4">
-        <form v-on:submit="login($event)" action="http://localhost:8080/cadastro/usuario">
+        <form>
             <div class="form-group">
                 <label for="idUsuario">Usuário:</label>
                 <input type="text" name="Usuario" id="idUsuario" class="form-control" placeholder="Informe o seu nome de usuário"> 
@@ -12,7 +12,7 @@
             </div>
             <div class="grupo mt-3">
               <input type="reset" id ="limpar" value="Limpar" class="btn">
-              <input type="submit" id = "submeter" value="Entrar" class="btn">
+              <input type="submit" v-on:click="login" id = "submeter" value="Entrar" class="btn">
             </div>
         </form>
         <br/>
@@ -24,9 +24,9 @@
 export default{
     name: 'Login',
     methods: {
-      login: function(event){
-        var nome = "neto"
-        if(nome === 'net') event.preventDefault()
+      login: function(){
+        this.$router.push({name: 'Home'});
+        this.$emit('aparecer');
       }
     },
     mounted: function(){
