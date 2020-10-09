@@ -66,20 +66,29 @@ export default{
 
 <style>
 
+  @media (max-width: 576px) {
+    #form-login{
+      width: 90%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199.97px)  {
+    #form-login{
+      width: 35%;
+    }
+  }
+
+  @media (min-width: 1199.98px) {
+    #form-login{
+      width: 25%;
+    }
+  }
+
   .login, .cadastrar{
     font-size: 80%;
     padding-left: 0;
     padding-right: 0;
-    color: grey;
-  }
-
-  #clicado-estilo{
-    color: white;
-    border-bottom: 2px solid rgb(99, 55, 221);
-  }
-
-  .login:hover, .cadastrar:hover{
-    color: white;
+    color: rgb(99, 55, 221);
     border-bottom: 2px solid rgb(99, 55, 221);
   }
 
@@ -88,11 +97,13 @@ export default{
   }
 
   #form-login{
-    width: 25%;
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 2%;
-    border-radius: 5%;
+    border-radius: 0;
+    background-color: white;
+    padding-right: 1%;
+    padding-left: 1%;
   }
 
   .form-login label{
@@ -109,6 +120,7 @@ export default{
     color: white;
     background-color: #271c64;
     border: none;
+    border-radius: 0;
   }
 
   #form-login input[type="submit"]:hover, #form-login input[type="reset"]:hover{
@@ -125,19 +137,17 @@ export default{
     justify-content: center;
   }
 
-  .grupo input:first-child{
-    margin-right: 3%;
-  }
 
   input[type="text"], input[type="password"]{
     background-color: transparent;
+    border-radius: 0;
     border-top: none;
     border-left: none;
     border-right: none;
   }
 
   .link-usuario a{
-    color: white;
+    color:rgb(17, 51, 126);
   }
 
   p, .link-usuario a{
@@ -153,5 +163,6 @@ export default{
     display: flex;
     justify-content: space-between;
   }
+
 
 </style>
