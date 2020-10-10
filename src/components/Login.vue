@@ -9,6 +9,9 @@
             type="button" class="btn botao text-uppercase font-weight-bold cadastrar">
             Cadastrar</button>
           </div>
+          <div class="alert alert-danger" role="alert">
+            <span>Alerta</span>
+          </div>
             <div class="form-group mb-5">
                 <input type="text" name="Usuario" id="idUsuario" class="form-control border-secondary" 
                 placeholder="Informe o seu nome de usuário"> 
@@ -30,19 +33,19 @@
 
 <script>
 export default{
-    name: 'Login',
-    methods: {
-      login: function(){
-        this.$router.push({name: 'Home'});
-        this.$emit('aparecer');
-      },
-      clique: function(){
-        this.$router.push({name:'CadUsuario'});
-      }
+  name: 'Login',
+  methods: {
+    login: function(){
+      this.$router.push({name: 'Home'});
+      this.$emit('aparecer');
+    },
+    clique: function(){
+          this.$router.push({name:'CadUsuario'});
+    }
     },
     mounted: function(){
       this.$emit('desaparecer');
-    }
+  }
 }
 </script>
 

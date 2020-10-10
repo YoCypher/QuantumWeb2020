@@ -8,6 +8,9 @@
     <button name="cadastro" type="button" class="btn botao text-uppercase font-weight-bold cadastrar1">
     Cadastrar</button>
   </div>
+  <div class="alert alert-danger" role="alert">
+    <span>Alerta</span>
+  </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
@@ -73,8 +76,6 @@ export default {
     background-color: #271c64;
     border: none;
     border-radius: 0;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   #botaoUsuario:hover{
