@@ -14,12 +14,6 @@
                 right
               >
                 <b-dropdown-item>
-                  <router-link to="/cadastro/usuario" class="dropdown-item">
-                    Cadastro de Usuário
-                  </router-link>
-                </b-dropdown-item>
-                <b-dropdown-divider></b-dropdown-divider>
-                <b-dropdown-item>
                   <router-link to="/cadastro/funcionario" class="dropdown-item">
                     Cadastro de Funcionário
                   </router-link>

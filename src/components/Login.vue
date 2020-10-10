@@ -1,11 +1,12 @@
 <template>
-    <div class="content">
-        <!--<img src="../assets/img/logo.png" class="rounded mx-auto d-block mb-4">-->
+    <div class="content container-fluid">
+      <!--<img src="../assets/img/logo.png" class="rounded mx-auto d-block mb-4">-->
         <form id="form-login" class="pt-4">
           <div class="btn-group mb-4" role="group" aria-label="Exemplo básico">
-            <button name="login" v-on:click="clique($event)" v-bind:id="estilo_login" type="button" class="btn botao text-uppercase font-weight-bold mr-4 login">
+            <button name="login" type="button" class="btn botao text-uppercase font-weight-bold mr-4 login">
             Login</button>
-            <button name="cadastro" v-on:click="clique($event)" v-bind:id="estilo_cadastro" type="button" class="btn botao text-uppercase font-weight-bold cadastrar">
+            <button name="cadastro" v-on:click="clique" 
+            type="button" class="btn botao text-uppercase font-weight-bold cadastrar">
             Cadastrar</button>
           </div>
             <div class="form-group mb-5">
@@ -20,42 +21,23 @@
               <a href="#">ESQUECI MINHA SENHA</a>
               <a href="">ESQUECI MEU NOME DE USUÁRIO</a>
             </div>
-
             <div class="grupo mt-5">
-              <!--<input type="reset" id ="limpar" value="Limpar" class="btn btn-lg">-->
               <input type="submit" v-on:click="login" id = "submeter" value="Entrar" class="btn btn-lg w-100">
             </div>
         </form>
-        <br/>
-        <p id = "mensagem" style="color: red;"></p>
     </div>
 </template>
 
 <script>
 export default{
     name: 'Login',
-    data: function(){
-      return {
-        estilo_login: 'clicado-estilo',
-        estilo_cadastro: ''
-      }
-    },
     methods: {
       login: function(){
         this.$router.push({name: 'Home'});
         this.$emit('aparecer');
       },
-      clique: function($event){
-        if(this.estilo_login === 'clicado-estilo' && $event.target.id === 'clicado-estilo') return;
-        if(this.estilo_cadastro === 'clicado-estilo' && $event.target.id === 'clicado-estilo') return;
-        if($event.target.name === 'login') {
-          this.estilo_login = 'clicado-estilo';
-          this.estilo_cadastro = '';
-        }
-        else{
-          this.estilo_cadastro = 'clicado-estilo',
-          this.estilo_login = '';
-        }
+      clique: function(){
+        this.$router.push({name:'CadUsuario'});
       }
     },
     mounted: function(){
@@ -84,7 +66,17 @@ export default{
     }
   }
 
-  .login, .cadastrar{
+  .cadastrar{
+    font-size: 80%;
+    color: grey;
+  }
+
+  .cadastrar:hover{
+    color: rgb(99, 55, 221);
+    border-bottom: 2px solid rgb(99, 55, 221);
+  }
+
+  .login{
     font-size: 80%;
     padding-left: 0;
     padding-right: 0;
@@ -106,10 +98,6 @@ export default{
     padding-left: 1%;
   }
 
-  .form-login label{
-    color: white;
-  }
-
   .content{
     height: 100vh;
     background-color: #00008B;
@@ -128,17 +116,12 @@ export default{
     background-color: #4a148c;
   }
 
-  .content h2{
-      text-align: center;
-  }
-
   .grupo{
     display: flex;
     justify-content: center;
   }
 
-
-  input[type="text"], input[type="password"]{
+  #form-login input[type="text"], #form-login input[type="password"]{
     background-color: transparent;
     border-radius: 0;
     border-top: none;
@@ -163,6 +146,4 @@ export default{
     display: flex;
     justify-content: space-between;
   }
-
-
 </style>
