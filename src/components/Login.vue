@@ -1,7 +1,7 @@
 <template>
     <div class="content container-fluid">
       <!--<img src="../assets/img/logo.png" class="rounded mx-auto d-block mb-4">-->
-        <form id="form-login" class="pt-4">
+        <form id="form-login" class="pt-4" v-on:submit="login($event)">
           <div class="btn-group mb-4" role="group" aria-label="Exemplo básico">
             <button name="login" type="button" class="btn botao text-uppercase font-weight-bold mr-4 login">
             Login</button>
@@ -9,15 +9,15 @@
             type="button" class="btn botao text-uppercase font-weight-bold cadastrar">
             Cadastrar</button>
           </div>
-          <div class="alert alert-danger" role="alert">
-            <span>Alerta</span>
+          <div v-bind:class="alerta" role="alert">
+            <span v-html="alertaConteudo"></span>
           </div>
             <div class="form-group mb-5">
-                <input type="text" name="Usuario" id="idUsuario" class="form-control border-secondary" 
-                placeholder="Informe o seu nome de usuário"> 
+                <input v-model="email" type="email" name="Usuario" id="idUsuario" class="form-control border-secondary" 
+                placeholder="Informe o seu email"> 
             </div>
             <div class="form-group mt-3 mb-5">
-                <input type="password" name="Senha" id="idSenha" class="form-control border-secondary" 
+                <input v-model="senha" type="password" name="Senha" id="idSenha" class="form-control border-secondary" 
                 placeholder="Informe a senha do usuário">
             </div>
             <div class="link-usuario mb-4">
@@ -25,31 +25,102 @@
               <a href="">ESQUECI MEU NOME DE USUÁRIO</a>
             </div>
             <div class="grupo mt-5">
-              <input type="submit" v-on:click="login" id = "submeter" value="Entrar" class="btn btn-lg w-100">
+              <input type="button" v-on:click="login($event)" id = "submeter" value="Entrar" class="btn btn-lg w-100">
             </div>
         </form>
     </div>
 </template>
 
 <script>
+var cont = 0;
 export default{
   name: 'Login',
+  data: function(){
+    return {
+      email: '',
+      senha: '',
+      alerta: 'alert alert-danger ocultar',
+      alertaConteudo: ''
+    }
+  },
   methods: {
     login: function(){
-      this.$router.push({name: 'Home'});
-      this.$emit('aparecer');
+      if(this.validarEmail() && this.validarSenha()){
+        this.$router.push({name: 'Home'});
+        this.$emit('aparecer');
+      }
+      else{
+        this.alerta = this.alerta.replace('ocultar', '');
+      }
     },
     clique: function(){
-          this.$router.push({name:'CadUsuario'});
-    }
+      this.$router.push({name:'CadUsuario'});
     },
-    mounted: function(){
-      this.$emit('desaparecer');
+    validarEmail: function(){
+      var usuario = this.email.substring(0, this.email.indexOf('@'));
+      var dominio = this.email.substring(this.email.indexOf('@') + 1, this.email.length);
+      if ((usuario.length >=1) &&
+      (dominio.length >=3) &&
+      (usuario.search("@")==-1) &&
+      (dominio.search("@")==-1) &&
+      (usuario.search(" ")==-1) &&
+      (dominio.search(" ")==-1) &&
+      (dominio.search(".")!=-1) &&
+      (dominio.indexOf(".") >=1)&&
+      (dominio.lastIndexOf(".") < dominio.length - 2)) return true;
+      cont = 0;
+      this.alertaConteudo = "Email Invalido<br><hr>";
+      return false;
+    },
+    validarSenha: function(){
+      var regex = /[0-9]/;
+      if(regex.test(this.senha) && this.senha.length >= 8 && this.hasUpper() && this.hasLower()) return true;
+      else{
+        if(cont === 0){
+          this.alertaConteudo += 'Senha Invalida';
+          cont++;
+        }
+        return false;
+      }
+    },
+    hasUpper: function(){
+      var i = 0;
+      while(i < this.senha.length){
+        var caractere = this.senha.charAt(i);
+        if(!isNaN(caractere * 1)){
+          i++;
+          continue;
+        }
+        if(caractere === caractere.toUpperCase()) return true;
+        i++;
+      }
+      return false;
+    },
+    hasLower: function(){
+      var i = 0;
+      while(i < this.senha.length){
+        var caractere = this.senha.charAt(i);
+        if(!isNaN(caractere * 1)){
+          i++;
+          continue;
+        }
+        if(caractere === caractere.toLowerCase()) return true;
+        i++;
+      }
+      return false;
+    }
+  },
+  mounted: function(){
+    this.$emit('desaparecer');
   }
 }
 </script>
 
 <style>
+
+  .ocultar{
+    display: none;
+  }
 
   @media (max-width: 576px) {
     #form-login{
@@ -107,7 +178,7 @@ export default{
     padding-top: 5%;
   }
 
-  #form-login input[type="submit"], #form-login input[type="reset"]{
+  #form-login input[type="button"], #form-login input[type="reset"]{
     color: white;
     background-color: #271c64;
     border: none;
@@ -124,7 +195,7 @@ export default{
     justify-content: center;
   }
 
-  #form-login input[type="text"], #form-login input[type="password"]{
+  #form-login input[type="email"], #form-login input[type="password"]{
     background-color: transparent;
     border-radius: 0;
     border-top: none;
