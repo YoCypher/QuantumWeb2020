@@ -1,7 +1,7 @@
 <template>
-    <div class="content container-fluid">
+    <div class="content container-fluid" method="get">
       <!--<img src="../assets/img/logo.png" class="rounded mx-auto d-block mb-4">-->
-        <form id="form-login" class="pt-4" v-on:submit="login($event)">
+        <form id="form-login" class="pt-4">
           <div class="btn-group mb-4" role="group" aria-label="Exemplo básico">
             <button name="login" type="button" class="btn botao text-uppercase font-weight-bold mr-4 login">
             Login</button>
@@ -26,7 +26,7 @@
             </div>
             <div class="grupo mt-5">
               <input type="button" v-on:click="login($event)" id = "submeter" value="Entrar" class="btn btn-lg w-100">
-            </div>
+            </div><!--v-on:click="login()"-->
         </form>
     </div>
 </template>
@@ -40,14 +40,28 @@ export default{
       email: '',
       senha: '',
       alerta: 'alert alert-danger ocultar',
-      alertaConteudo: ''
+      alertaConteudo: '',
+      user: null
     }
   },
   methods: {
+    mostrar: function(data){
+      if(data != null){
+        this.user = data;
+        alert(this.user);
+        this.$router.push({name: 'Home', params: {id: this.user.id, email: this.user.email}});
+        this.$emit('aparecer');
+      }
+      else{
+        alert("Usuario não encontrado!");
+        return;
+      }
+    },
     login: function(){
       if(this.validarEmail() && this.validarSenha()){
-        this.$router.push({name: 'Home'});
-        this.$emit('aparecer');
+        this.$http.get("http://localhost:8081/quatum/api/users/?email="+this.email+'&password='+this.senha).
+        then((res) => {this.mostrar(res.data)}).
+        catch(e => console.error(e));
       }
       else{
         this.alerta = this.alerta.replace('ocultar', '');

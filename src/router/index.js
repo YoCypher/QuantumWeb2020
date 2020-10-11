@@ -68,7 +68,7 @@ const routes = [
     component: AlterarUsuario
   },
   {
-    path: '/home',
+    path: '/home:id/:email',
     name: 'Home',
     component: HomeLogado
   }

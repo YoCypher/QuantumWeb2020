@@ -1,6 +1,6 @@
 <template>
 <div id="form-usuario">
-<form v-on:submit="clique($event)" class="container form-usuario rounded-0">
+<form class="container form-usuario rounded-0">
   <div class="btn-group mb-4" role="group" aria-label="Exemplo básico">
     <button name="login" type="button" v-on:click="toHome"
     class="btn botao text-uppercase font-weight-bold mr-4 login-cadastrar">
@@ -46,7 +46,7 @@
       <input v-model="cep" type="text" class="form-control" id="inputCEP">
     </div>
   </div>
-  <button id="botaoUsuario" type="submit" class="btn btn-primary btn-lg">Entrar</button>
+  <button id="botaoUsuario" v-on:click = "clique" type="button" class="btn btn-primary btn-lg">Entrar</button>
 </form>
 </div>
 </template>
@@ -64,18 +64,26 @@ export default {
         endereco: '',
         cidade: '',
         cep: '',
-        alerta: 'alert alert-danger ocultar'
+        alerta: 'alert alert-danger ocultar',
+        users: null
       }
     },
     methods:{
-      clique: function($event){
+      mostrar: function(data){
+        this.users = data;
+        alert(JSON.stringify(data));
+        this.$emit('aparecer');
+        this.$router.push({name: 'Home', params: {id: this.users.id, email: this.users.email}});
+      },
+      clique: function(){
         if(this.validarCadastro()){
-          this.$emit('aparecer');
-          this.$router.push({name:'Home'});
+          this.$http.post('http://localhost:8081/quatum/api/users/',
+            {email: this.email, password: this.senha, endereco: this.cidade, cep: this.cep, cidade: this.cidade, estado: 'ce'}
+          ).then((res) => {this.mostrar(res.data)}).
+          catch(e => console.error(e));
         }
         else{
           this.alerta = this.alerta.replace('ocultar', '');
-          $event.preventDefault();
         }
       },
       toHome: function(){
