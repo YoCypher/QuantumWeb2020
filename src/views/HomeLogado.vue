@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="alert alert-info mt-3" role="alert">
-            <h3 class="alert-heading">Olá Usuário</h3>
+            <h3 class="alert-heading">Olá {{$route.params.email}}</h3>
             <hr>
             <p>Aqui estão todas as funcionalidades</p>
         </div>

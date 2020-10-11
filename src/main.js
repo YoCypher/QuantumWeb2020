@@ -1,8 +1,15 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+<<<<<<< HEAD
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import axios from 'axios'
+=======
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import axios from 'axios';
+
+Vue.prototype.$http = axios;
+>>>>>>> 016ec04a9339f75642ecdbd973edacbf08cc1c55
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
