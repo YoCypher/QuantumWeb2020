@@ -9,9 +9,13 @@ const rotas_busca = [
     path: '/buscar/usuario',
     name: 'BuscarUsuario',
     component: BuscarUsuario
-  }
+  },
+  {
+    path: "/buscar/funcionarios",
+    name: "Funcionarios",
+    component: Funcionarios,
+  },
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
